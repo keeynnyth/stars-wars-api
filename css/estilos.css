@@ -32,6 +32,8 @@ h1 {
     padding: 4px;
     cursor: pointer;
     width: 100px;
+    border-radius: 8px;
+    background-color: #ff9800;
 }
 
 #lista-peliculas, #lista-personajes {
