@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Funcionalidad para cambiar el tema
     toggleThemeButton.addEventListener('click', () => {
         document.body.classList.toggle('light-mode');
-        toggleThemeButton.textContent = document.body.classList.contains('ligth-mode') ? 'Modo Claro' : 'Modo Oscuro';
+        toggleThemeButton.textContent = document.body.classList.contains('light-mode') ? 'Modo Ocuro' : 'Modo Claro';
     });
 
     // Obtener la lista de películas desde el API
