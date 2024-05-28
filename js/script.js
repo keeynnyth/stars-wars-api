@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             .then(personaje => {
                                 displayPersonaje(personaje);
                             });
+                            detallesElemento.style.display = 'none'; // Replegar los detalles de la película
+                            peliculaElemento.classList.remove('pelicula-seleccionada');
                     });
                 });
             });
@@ -99,6 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < personajes.length; i++) {
             personajes[i].classList.remove('seleccionado');
         }
+
+        // Llevar el cursor a la sección de detalles del personaje
+        detallesPersonaje.scrollIntoView({ behavior: 'smooth' });
 
         // Añadir la clase "seleccionado" al personaje seleccionado
         document.getElementById(personajeId).classList.add('seleccionado');
