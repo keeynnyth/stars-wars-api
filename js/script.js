@@ -4,10 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const detallesPersonaje = document.getElementById('detalles-personaje');
     const toggleThemeButton = document.getElementById('toggle-theme');
 
+    // Establecer el año actual en el pie de página
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
     // Funcionalidad para cambiar el tema
     toggleThemeButton.addEventListener('click', () => {
         document.body.classList.toggle('light-mode');
-        toggleThemeButton.textContent = document.body.classList.contains('light-mode') ? 'Modo Oscuro' : 'Modo Claro';
+        toggleThemeButton.textContent = document.body.classList.contains('ligth-mode') ? 'Modo Claro' : 'Modo Oscuro';
     });
 
     // Obtener la lista de películas desde el API
@@ -60,9 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             .then(personaje => {
                                 displayPersonaje(personaje);
                             });
-                            detallesElemento.style.display = 'none'; // Replegar los detalles de la película
-                            peliculaElemento.classList.remove('pelicula-seleccionada');
                     });
+                    const detallesElemento = peliculaElemento.querySelector('.pelicula-detalles');
+                    detallesElemento.style.display = 'none'; // Replegar los detalles de la película
+                    peliculaElemento.classList.remove('pelicula-seleccionada');
                 });
             });
         });
@@ -102,11 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
             personajes[i].classList.remove('seleccionado');
         }
 
-        // Llevar el cursor a la sección de detalles del personaje
-        detallesPersonaje.scrollIntoView({ behavior: 'smooth' });
-
         // Añadir la clase "seleccionado" al personaje seleccionado
         document.getElementById(personajeId).classList.add('seleccionado');
+
+        // Llevar el cursor a la sección de detalles del personaje
+        detallesPersonaje.scrollIntoView({ behavior: 'smooth' });
     }
 
     // Función para obtener el ID del personaje desde la URL
